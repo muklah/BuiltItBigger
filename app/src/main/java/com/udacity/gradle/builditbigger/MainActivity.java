@@ -8,13 +8,12 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.androidlibrary.AndroidLibraryActivity;
 import com.udacity.gradle.jokes.Joker;
 
 public class MainActivity extends AppCompatActivity {
-
-    public boolean testFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +24,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-            Joker joker = new Joker();
-            final String joke = joker.getJoke();
+        EndpointsAsyncTask asyncTask = new EndpointsAsyncTask(this);
+        asyncTask.execute();
 
-            Intent intent = new Intent(this, AndroidLibraryActivity.class);
-            intent.putExtra("jokes", joke);
-            startActivity(intent);
+//        new EndpointsAsyncTask() {
+//            @Override
+//            protected void onPostExecute(String output) {
+//                Intent myIntent = new Intent(getApplicationContext(), AndroidLibraryActivity.class);
+//                myIntent.putExtra("jokes", output);
+//                startActivity(myIntent);
+//            }
+//        }.execute();
+
+//            Joker joker = new Joker();
+//            final String joke = joker.getJoke();
+//
+//            Intent intent = new Intent(this, AndroidLibraryActivity.class);
+//            intent.putExtra("jokes", joke);
+//            startActivity(intent);
 
     }
 
