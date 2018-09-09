@@ -20,7 +20,6 @@ public class AndroidLibraryActivity extends AppCompatActivity {
 
             jokes.setText(joke);
 
-
 //        String joke = getIntent().getStringExtra("jokes");
 //        jokes.setText(joke);
 
